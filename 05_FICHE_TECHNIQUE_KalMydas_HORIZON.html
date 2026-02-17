@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche Technique - KalMydas HORIZON</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kalmydas-dark: #0a3c2f;
+            --kalmydas-gold: #f1c40f;
+            --kalmydas-green: #2ecc71;
+            --text-main: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(241, 196, 15, 0.3);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at center, #1a5c46 0%, #0a3c2f 100%);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        .background-blob {
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            filter: blur(140px);
+            z-index: -1;
+            opacity: 0.35;
+        }
+
+        .blob-1 {
+            top: -200px;
+            right: -200px;
+            background: radial-gradient(circle, var(--kalmydas-gold) 0%, transparent 70%);
+        }
+
+        .blob-2 {
+            bottom: -200px;
+            left: -200px;
+            background: radial-gradient(circle, var(--kalmydas-green) 0%, transparent 70%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--kalmydas-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #fff 0%, var(--kalmydas-gold) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: var(--kalmydas-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 45px;
+            margin-bottom: 35px;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: var(--kalmydas-gold);
+            border-left: 3px solid var(--kalmydas-gold);
+            padding-left: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        th {
+            background: rgba(241, 196, 15, 0.1);
+            color: var(--kalmydas-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .badge {
+            background: rgba(241, 196, 15, 0.2);
+            color: var(--kalmydas-gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .step-num {
+            min-width: 35px;
+            height: 35px;
+            background: var(--kalmydas-gold);
+            color: var(--kalmydas-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ===== NAVIGATION INTERNE ===== */
+        .internal-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            gap: 20px;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .nav-item:hover {
+            color: var(--kalmydas-gold);
+            transform: translateY(-3px);
+        }
+
+        .nav-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .nav-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-bottom: 40px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.75rem;
+        }
+
+        @media print {
+
+            .background-blob,
+            .internal-nav,
+            .back-btn {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            section,
+            header,
+            table {
+                background: white !important;
+                border: 1px solid #eee !important;
+                color: black !important;
+            }
+
+            h1,
+            h2,
+            th {
+                color: black !important;
+                background: none !important;
+                -webkit-text-fill-color: initial !important;
+            }
+
+            td,
+            p {
+                color: #333 !important;
+            }
+
+            .badge {
+                border: 1px solid #777;
+                color: black !important;
+            }
+
+            .step-num {
+                background: #333 !important;
+                color: white !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blob blob-1"></div>
+    <div class="background-blob blob-2"></div>
+
+    <div class="container">
+        <a href="00_PORTAIL_KalMydas_HORIZON.html" class="back-btn">← Retour au Portail</a>
+
+        <header>
+            <span class="subtitle">KalMydas HORIZON – Configuration Système</span>
+            <h1>Fiche Technique</h1>
+        </header>
+
+        <section id="specifications">
+            <h2>Spécifications Techniques</h2>
+            <table>
+                <tr>
+                    <th>Paramètre</th>
+                    <th>Valeur / Recommandation</th>
+                </tr>
+                <tr>
+                    <td>Plateforme</td>
+                    <td><span class="badge">MetaTrader 4 (MT4)</span></td>
+                </tr>
+                <tr>
+                    <td>Actif Éligible</td>
+                    <td>XAUUSD (GOLD / Or Spot)</td>
+                </tr>
+                <tr>
+                    <td>Unité de Temps (TF)</td>
+                    <td>H4 (Horizon Long Terme)</td>
+                </tr>
+                <tr>
+                    <td>Risque par Trade</td>
+                    <td><span class="badge">0.5% à 2.0%</span> (Conseillé)</td>
+                </tr>
+                <tr>
+                    <td>Type de Stratégie</td>
+                    <td>Suivi de Tendance Institutionnel</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="installation">
+            <h2>Guide d'Installation Rapide</h2>
+            <div class="step">
+                <div class="step-num">1</div>
+                <p>Déposez le fichier <b>KalMydas HORIZON.ex4</b> dans le dossier <i>MQL4/Experts</i> de votre terminal.
+                </p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <p>Activez l'option <b>Auto Trading</b> dans la barre d'outils supérieure de MetaTrader.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <p>Ouvrez un graphique <b>XAUUSD H4</b> et glissez l'Expert Advisor du navigateur vers le graphique.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <p>Dans l'onglet "Général", cochez <b>"Allow Live Trading"</b> et <b>"Allow DLL imports"</b>.</p>
+            </div>
+        </section>
+
+        <section id="parametres">
+            <h2>Paramètres Clés</h2>
+            <p>L'algorithme HORIZON opère avec des réglages optimisés en interne. Cependant, vous pouvez ajuster :</p>
+            <ul>
+                <li><span style="color:var(--kalmydas-gold)">Risk_Percentage</span> : Définit la perte maximale
+                    théorique par transaction.</li>
+                <li><span style="color:var(--kalmydas-gold)">Max_Simultaneous_Trades</span> : Limite l'exposition
+                    (Défaut : 3).</li>
+                <li><span style="color:var(--kalmydas-gold)">Magic_Number</span> : Identifiant unique pour le suivi des
+                    ordres.</li>
+            </ul>
+        </section>
+
+        <nav class="internal-nav">
+            <a href="04_MANUEL_STRATEGIQUE_KalMydas_HORIZON.html" class="nav-item">
+                <span class="nav-label">Précédent</span>
+                <span class="nav-title">Manuel Stratégique</span>
+            </a>
+            <a href="06_BACKTEST_GLOBAL_KalMydas_HORIZON.html" class="nav-item" style="text-align: right;">
+                <span class="nav-label">Suivant</span>
+                <span class="nav-title">Rapport de Backtest</span>
+            </a>
+        </nav>
+
+        <footer>
+            © 2026 KalMydas HORIZON - Technical Documentation Registry
+        </footer>
+    </div>
+</body>
+
+</html>

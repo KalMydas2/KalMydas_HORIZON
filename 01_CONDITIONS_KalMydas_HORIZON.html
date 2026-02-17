@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions d'Utilisation - KalMydas HORIZON</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kalmydas-dark: #0a3c2f;
+            --kalmydas-gold: #f1c40f;
+            --kalmydas-green: #2ecc71;
+            --text-main: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(241, 196, 15, 0.3);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at center, #1a5c46 0%, #0a3c2f 100%);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        .background-blob {
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            filter: blur(140px);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .blob-1 {
+            top: -200px;
+            right: -200px;
+            background: radial-gradient(circle, var(--kalmydas-gold) 0%, transparent 70%);
+        }
+
+        .blob-2 {
+            bottom: -200px;
+            left: -200px;
+            background: radial-gradient(circle, var(--kalmydas-green) 0%, transparent 70%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--kalmydas-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #fff 0%, var(--kalmydas-gold) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: var(--kalmydas-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 45px;
+            margin-bottom: 35px;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--kalmydas-gold);
+            border-left: 3px solid var(--kalmydas-gold);
+            padding-left: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .risk-warning {
+            border: 1px solid #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .risk-warning h3 {
+            color: #e74c3c;
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ===== NAVIGATION INTERNE ===== */
+        .internal-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            gap: 20px;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .nav-item:hover {
+            color: var(--kalmydas-gold);
+            transform: translateY(-3px);
+        }
+
+        .nav-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .nav-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-bottom: 40px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.75rem;
+        }
+
+        @media print {
+
+            .background-blob,
+            .internal-nav,
+            .back-btn {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            section,
+            header,
+            .risk-warning {
+                background: white !important;
+                border: 1px solid #ccc !important;
+                color: black !important;
+            }
+
+            h1,
+            h2,
+            h3 {
+                color: black !important;
+                background: none !important;
+                -webkit-text-fill-color: initial !important;
+            }
+
+            p {
+                color: #333 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blob blob-1"></div>
+    <div class="background-blob blob-2"></div>
+
+    <div class="container">
+        <a href="00_PORTAIL_KalMydas_HORIZON.html" class="back-btn">← Retour au Portail</a>
+
+        <header>
+            <span class="subtitle">KalMydas HORIZON – Cadre Juridique</span>
+            <h1>Conditions d'Utilisation</h1>
+        </header>
+
+        <div class="risk-warning">
+            <h3>Avertissement sur les Risques</h3>
+            <p>Le trading sur marge comporte un niveau de risque élevé et peut ne pas convenir à tous les investisseurs.
+                Avant de décider de trader les produits KalMydas HORIZON, vous devez examiner attentivement vos
+                objectifs d'investissement, votre niveau d'expérience et votre appétence au risque.</p>
+            <p><strong>Il est possible de subir une perte de tout ou partie de votre capital investi.</strong></p>
+        </div>
+
+        <section id="objet">
+            <h2>1. Objet des Services</h2>
+            <p>KalMydas HORIZON fournit des outils d'aide à la décision et des algorithmes de trading automatisés
+                (Expert Advisors) destinés à la plateforme MetaTrader. Ces outils sont fournis à titre informatif et
+                technique uniquement.</p>
+        </section>
+
+        <section id="non-conseil">
+            <h2>2. Non-Conseil en Investissement</h2>
+            <p>L'utilisation de nos algorithmes ne constitue en aucun cas un conseil en investissement ou une
+                recommandation personnalisée. KalMydas n'est pas une société de gestion de portefeuille et ne gère pas
+                de fonds pour le compte de tiers.</p>
+        </section>
+
+        <section id="responsabilite">
+            <h2>3. Limite de Responsabilité</h2>
+            <p>L'utilisateur est seul responsable de ses décisions de trading et de la configuration de son propre
+                environnement technique (serveur VPS, connexion internet, choix du courtier). KalMydas décline toute
+                responsabilité en cas de pertes financières, interruptions techniques ou erreurs d'exécution.</p>
+        </section>
+
+        <section id="performances">
+            <h2>4. Performances Passées</h2>
+            <p>Les performances passées ne sont pas indicatives des résultats futurs. Les backtests sont des simulations
+                basées sur des données historiques et ne garantissent en aucun cas une rentabilité identique dans les
+                conditions réelles du marché.</p>
+        </section>
+
+        <nav class="internal-nav">
+            <a href="00_PORTAIL_KalMydas_HORIZON.html" class="nav-item">
+                <span class="nav-label">Précédent</span>
+                <span class="nav-title">Portail Accueil</span>
+            </a>
+            <a href="02_LICENCE_KalMydas_HORIZON.html" class="nav-item" style="text-align: right;">
+                <span class="nav-label">Suivant</span>
+                <span class="nav-title">Licence Logicielle</span>
+            </a>
+        </nav>
+
+        <footer>
+            © 2026 KalMydas HORIZON • ALGORITHMIC FREEDOM • GREEN GROWTH
+        </footer>
+    </div>
+</body>
+
+</html>

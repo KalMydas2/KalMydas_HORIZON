@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel Stratégique - KalMydas HORIZON</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kalmydas-dark: #0a3c2f;
+            --kalmydas-gold: #f1c40f;
+            --kalmydas-green: #2ecc71;
+            --text-main: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(241, 196, 15, 0.3);
+            --accent-glow: rgba(241, 196, 15, 0.2);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at center, #1a5c46 0%, #0a3c2f 100%);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        .background-blob {
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            filter: blur(140px);
+            z-index: -1;
+            opacity: 0.35;
+        }
+
+        .blob-1 {
+            top: -200px;
+            right: -200px;
+            background: radial-gradient(circle, var(--kalmydas-gold) 0%, transparent 70%);
+        }
+
+        .blob-2 {
+            bottom: -200px;
+            left: -200px;
+            background: radial-gradient(circle, var(--kalmydas-green) 0%, transparent 70%);
+        }
+
+        .blob-3 {
+            top: 40%;
+            left: -300px;
+            background: radial-gradient(circle, var(--kalmydas-gold) 0%, transparent 70%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--kalmydas-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin: 10px 0;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #fff 0%, var(--kalmydas-gold) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--kalmydas-gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 45px;
+            margin-bottom: 35px;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: var(--kalmydas-gold);
+            border-left: 3px solid var(--kalmydas-gold);
+            padding-left: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .highlight {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--kalmydas-gold);
+            font-weight: 700;
+        }
+
+        .accent-box {
+            background: rgba(241, 196, 15, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 4px solid var(--kalmydas-gold);
+        }
+
+        /* ===== NAVIGATION INTERNE ===== */
+        .internal-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            gap: 20px;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .nav-item:hover {
+            color: var(--kalmydas-gold);
+            transform: translateY(-3px);
+        }
+
+        .nav-label {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .nav-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-bottom: 40px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.75rem;
+        }
+
+        @media print {
+
+            .background-blob,
+            .internal-nav,
+            .back-btn {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            section,
+            header {
+                background: white !important;
+                border: 1px solid #eee !important;
+                color: black !important;
+            }
+
+            h1,
+            h2,
+            .highlight {
+                color: black !important;
+                background: none !important;
+                -webkit-text-fill-color: initial !important;
+            }
+
+            p,
+            li {
+                color: #333 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blob blob-1"></div>
+    <div class="background-blob blob-2"></div>
+    <div class="background-blob blob-3"></div>
+
+    <div class="container">
+        <a href="00_PORTAIL_KalMydas_HORIZON.html" class="back-btn">← Retour au Portail</a>
+
+        <header>
+            <span class="subtitle">KalMydas HORIZON – Algorithme Quantitatif</span>
+            <h1>Manuel Stratégique</h1>
+        </header>
+
+        <section id="philosophie">
+            <h2>1. Philosophie Algorithmique</h2>
+            <p><span class="highlight">KalMydas HORIZON</span> est un moteur de trading quantitatif de type <span
+                    class="highlight">Pyramidal Trend Following</span>, conçu spécifiquement pour l'Or (XAUUSD).</p>
+            <p>L'objectif n'est pas de prédire chaque mouvement, mais de capturer les flux directionnels majeurs et de
+                s'y exposer de manière exponentielle tant que le momentum est confirmé.</p>
+        </section>
+
+        <section id="signaux">
+            <h2>2. Analyse Technique & Signaux</h2>
+            <p>L'algorithme opère via une triple couche de validation pour minimiser les faux signaux :</p>
+            <ul>
+                <li><span class="highlight">Filtre Temporel EMA 200</span> : Définit la tendance structurelle. Aucun
+                    achat n'est autorisé si le prix est sous cette moyenne mobile institutionnelle.</li>
+                <li><span class="highlight">RSI Momentum Trigger</span> : Mesure l'accélération du flux. L'entrée est
+                    déclenchée lors d'une cassure de zone de neutralité (Trigger 55+).</li>
+                <li><span class="highlight">Gestion de Volatilité ATR</span> : Ajuste dynamiquement les paliers d'entrée
+                    en fonction de la respiration du marché.</li>
+            </ul>
+        </section>
+
+        <section id="gestion">
+            <h2>3. Pyramidation & Sortie</h2>
+            <p>La force de HORIZON réside dans sa gestion active de la position :</p>
+            <ul>
+                <li><span class="highlight">Accumulation Directionnelle</span> : L'algorithme renforce la position
+                    (jusqu'à 3 trades) uniquement lorsque le trade précédent est déjà sécurisé en profit.</li>
+                <li><span class="highlight">Trailing Stop Donchian</span> : Utilise les bornes inférieures (Low 20) pour
+                    "coller" au prix et verrouiller les gains massifs lors des tendances paraboliques.</li>
+            </ul>
+            <div class="accent-box">
+                <p>Horizon est conçu pour les investisseurs recherchant une décorrélation totale avec les marchés
+                    actions, particulièrement efficace lors des phases d'instabilité macro-économique.</p>
+            </div>
+        </section>
+
+        <nav class="internal-nav">
+            <a href="03_FICHE_PRODUIT_KalMydas_HORIZON.html" class="nav-item">
+                <span class="nav-label">Précédent</span>
+                <span class="nav-title">Fiche Produit</span>
+            </a>
+            <a href="05_FICHE_TECHNIQUE_KalMydas_HORIZON.html" class="nav-item" style="text-align: right;">
+                <span class="nav-label">Suivant</span>
+                <span class="nav-title">Fiche Technique</span>
+            </a>
+        </nav>
+
+        <footer>
+            © 2026 KalMydas HORIZON • ALGORITHMIC FREEDOM • GREEN GROWTH
+        </footer>
+    </div>
+</body>
+
+</html>
