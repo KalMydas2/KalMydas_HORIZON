@@ -11,9 +11,7 @@
     <style>
         :root {
             --primary: #2ecc71;
-            /* Vert Croissance */
             --primary-dark: #0a3c2f;
-            /* Vert Sombre Logo */
             --bg-dark: #0a0b0d;
             --card-bg: rgba(10, 60, 47, 0.4);
             --text-main: #e0e0e0;
@@ -21,7 +19,6 @@
             --glass-border: rgba(46, 204, 113, 0.3);
             --accent-glow: rgba(46, 204, 113, 0.15);
             --gold: #f1c40f;
-            --warning-red: #ff4d4d;
         }
 
         * {
@@ -35,53 +32,15 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             line-height: 1.7;
-            overflow-x: hidden;
             min-height: 100vh;
-        }
-
-        /* BLOBS ANIMÉS */
-        .background-blob {
-            position: fixed;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(10, 11, 13, 0) 70%);
-            z-index: -1;
-            filter: blur(100px);
-            opacity: 0.6;
-        }
-
-        .blob-1 {
-            top: -250px;
-            right: -250px;
-        }
-
-        .blob-2 {
-            bottom: -250px;
-            left: -250px;
-        }
-
-        /* SPA TRANSITIONS */
-        .page-section {
-            display: none;
-            min-height: 100vh;
-            padding: 80px 20px;
-            opacity: 0;
-            transform: translateX(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .page-section.active {
-            display: block;
-            opacity: 1;
-            transform: translateX(0);
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 60px 20px;
         }
 
-        /* COMPOSANTS PREMIUM */
         header {
             text-align: center;
             margin-bottom: 50px;
@@ -90,18 +49,14 @@
             border-radius: 30px;
             padding: 50px;
             backdrop-filter: blur(15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         h1 {
             font-size: 3.2rem;
-            font-weight: 700;
             background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
         }
 
         .subtitle {
@@ -112,122 +67,6 @@
             font-size: 0.85rem;
         }
 
-        /* BOX DE TEXTE LÉGAL */
-        .legal-box {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--glass-border);
-            border-radius: 25px;
-            padding: 50px;
-            max-height: 60vh;
-            overflow-y: auto;
-            margin-bottom: 40px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary) transparent;
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .legal-box h2 {
-            font-size: 1.6rem;
-            margin: 35px 0 20px;
-            color: var(--primary);
-            border-left: 4px solid var(--primary);
-            padding-left: 20px;
-        }
-
-        .legal-box h3 {
-            color: var(--warning-red);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-        }
-
-        .legal-box p,
-        .legal-box li {
-            margin-bottom: 15px;
-            font-weight: 300;
-        }
-
-        .warning-box {
-            background: rgba(255, 77, 77, 0.05);
-            border: 1px solid var(--warning-red);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .warning-box h3 {
-            color: var(--warning-red);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-        }
-
-        .highlight {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* TABLEAUX TECHNIQUES */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        th,
-        td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        th {
-            color: var(--primary);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            background: rgba(46, 204, 113, 0.05);
-        }
-
-        .code-snippet {
-            font-family: 'Courier New', monospace;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 3px 8px;
-            border-radius: 4px;
-            color: #fff;
-        }
-
-        /* BOUTONS */
-        .btn-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, var(--primary) 0%, #27ae60 100%);
-            color: #000;
-            border: none;
-            padding: 18px 45px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(46, 204, 113, 0.4);
-        }
-
-        /* HUB */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -240,776 +79,109 @@
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             padding: 35px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
             text-decoration: none;
             color: inherit;
             text-align: center;
+            transition: all 0.4s ease;
         }
 
         .card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
-            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.2);
             background: rgba(46, 204, 113, 0.05);
         }
 
-        .card .icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
+        .section-title {
+            margin: 60px 0 30px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 15px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            font-size: 0.85rem;
         }
 
-        .card h3 {
-            font-size: 1.4rem;
-            color: #fff;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        /* TABS NAV */
-        .tabs-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            position: sticky;
-            top: 20px;
-            z-index: 1000;
-        }
-
-        .tab-btn {
-            background: rgba(10, 60, 47, 0.8);
-            border: 1px solid var(--glass-border);
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-        }
-
-        .tab-btn.active,
-        .tab-btn:hover {
-            background: var(--primary);
-            color: #000;
-            border-color: var(--primary);
-            font-weight: 700;
-        }
-
-        /* SUPPORT */
         .support-wrapper {
             background: linear-gradient(to bottom, transparent, var(--card-bg));
-            border-top: 1px solid var(--glass-border);
-            padding: 80px 20px;
+            border: 1px solid var(--glass-border);
+            padding: 60px 20px;
             text-align: center;
-            margin-top: 100px;
-            border-radius: 50px 50px 0 0;
-        }
-
-        .support-wrapper h2 {
-            color: var(--gold);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 600px;
-            margin: 0 auto;
+            border-radius: 40px;
         }
 
         .social-link {
             background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
+            padding: 15px 30px;
             border-radius: 15px;
             text-decoration: none;
             color: var(--primary);
             font-weight: 600;
+            display: inline-block;
+            margin: 10px;
             transition: all 0.3s ease;
-            border: 1px solid transparent;
         }
 
         .social-link:hover {
             background: var(--primary);
             color: #000;
-            transform: scale(1.05);
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            color: #000;
-            transform: scale(1.02);
         }
 
         footer {
             text-align: center;
-            padding: 60px 40px;
+            padding: 60px;
             color: var(--text-muted);
             font-size: 0.75rem;
-            letter-spacing: 1px;
             opacity: 0.5;
-        }
-
-        /* STRUCTURE DOCUMENTS ORIGINAUX */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 35px;
-        }
-
-        .feature-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            padding: 25px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-item h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.15rem;
-        }
-
-        .highlight {
-            color: #fff;
-            font-weight: 600;
-        }
-
-        .accent-box {
-            background: rgba(46, 204, 113, 0.08);
-            border-left: 4px solid var(--primary);
-            padding: 25px;
-            border-radius: 0 15px 15px 0;
-            margin: 25px 0;
-        }
-
-        .badge {
-            background: rgba(46, 204, 113, 0.2);
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .step-num {
-            background: var(--primary);
-            color: #000;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            flex-shrink: 0;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 80px;
-            padding: 60px 40px;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            opacity: 0.7;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        /* SCROLLBAR */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
         }
     </style>
 </head>
 
 <body>
-    <div class="background-blob blob-1"></div>
-    <div class="background-blob blob-2"></div>
+    <div class="container">
+        <header>
+            <h1>KalMydas HORIZON</h1>
+            <p class="subtitle">Algorithme de Suivi de Tendance Majeure</p>
+        </header>
 
-    <!-- SECTION 1: LICENCE (ETAPE 1) -->
-    <section id="licence" class="page-section active">
-        <div class="container">
-            <header>
-                <h1>Licence d'utilisation (EULA)</h1>
-                <p class="subtitle">KalMydas - Logiciels de Trading Automatisés & Indicateurs</p>
-            </header>
-
-            <div class="legal-box">
-                <h2>1. Concession de Licence</h2>
-                <p>KalMydas vous accorde une licence <span class="highlight">personnelle, non exclusive et non
-                        transférable</span> pour utiliser nos logiciels de trading (Expert Advisors et Indicateurs)
-                    conformément aux termes du présent contrat.</p>
-                <ul>
-                    <li>La licence est strictement liée au numéro de compte de trading (MT4/MT5) spécifié lors de
-                        l'acquisition.</li>
-                    <li>Toute redistribution, copie du logiciel, ou <strong>réplication des transactions (par copy
-                            trading
-                            manuel ou automatique)</strong> vers des comptes tiers non licenciés est strictement
-                        interdite.
-                    </li>
-                </ul>
-
-                <h2>2. Restrictions d'utilisation</h2>
-                <p>Dans le cadre de cette licence, il vous est formellement interdit de :</p>
-                <ul>
-                    <li>Vendre, louer ou sous-licencier le logiciel à des tiers.</li>
-                    <li>Tenter de décompiler, désassembler ou effectuer de l'ingénierie inverse sur les fichiers Expert
-                        Advisor (.ex4 / .ex5).</li>
-                    <li>Modifier ou créer des œuvres dérivées basées sur le logiciel ou sa documentation.</li>
-                    <li>Utiliser le logiciel pour fournir des services de gestion de compte à des tiers sans accord
-                        commercial spécifique.</li>
-                </ul>
-
-                <h2>3. Système de Sécurité et Activation</h2>
-                <p>Le logiciel utilise un système de validation de licence propriétaire. Chaque exécution de
-                    l'algorithme
-                    vérifie la validité de la clé de licence par rapport au numéro de compte et à la date d'expiration.
-                </p>
-                <div
-                    style="background: rgba(46, 204, 113, 0.05); border: 1px dashed var(--primary); border-radius: 12px; padding: 20px; text-align: center; margin-top: 20px;">
-                    <p>Note : L'activation nécessite une clé unique générée par KalMydas, valable pour une durée
-                        déterminée
-                        (Renouvelable) ou illimitée (Lifetime Access), selon l'offre acquise.</p>
-                </div>
-
-                <h2>4. Mises à Jour et Support</h2>
-                <p>La licence donne droit aux mises à jour mineures de la version acquise. Les mises à jour majeures ou
-                    les
-                    nouveaux algorithmes peuvent nécessiter une extension de licence.</p>
-                <p>KalMydas ne saurait être tenu responsable des dysfonctionnements, changements de réglementation ou
-                    défaillances techniques imputables aux intermédiaires financiers (courtiers) ou aux éditeurs de
-                    plateformes (MetaQuotes), incluant sans s'y limiter les défauts d'exécution ou l'insolvabilité.</p>
-
-                <h2>5. Résiliation</h2>
-                <p>Cette licence est effective jusqu'à l'expiration de la période souscrite. Elle sera également
-                    résiliée
-                    automatiquement et sans préavis si vous ne respectez pas l'une des clauses de ce contrat.</p>
-                <p>En cas d'expiration ou de résiliation, vous devez cesser toute utilisation du logiciel et supprimer
-                    toutes les copies en votre possession.</p>
-            </div>
-
-            <div class="btn-container">
-                <button class="btn" onclick="showSection('conditions')">Poursuivre vers les Conditions</button>
-            </div>
-            <footer>
-                © 2026 KalMydas • ALGORITHMIC FREEDOM • GREEN GROWTH • Tous droits réservés.
-            </footer>
+        <div class="section-title">Documentation Stratégique & Technique</div>
+        <div class="cards-grid">
+            <a href="01_FICHE_PRODUIT_KalMydas HORIZON.html" class="card">
+                <h3>Fiche Produit</h3>
+                <p>Essence et points forts de l'algorithme.</p>
+            </a>
+            <a href="02_MANUEL_STRATEGIQUE_KalMydas HORIZON.html" class="card">
+                <h3>Manuel Stratégique</h3>
+                <p>Logique mathématique et mécanismes.</p>
+            </a>
+            <a href="03_FICHE_TECHNIQUE_KalMydas HORIZON.html" class="card">
+                <h3>Fiche Technique</h3>
+                <p>Installation et paramètres MT4.</p>
+            </a>
         </div>
-    </section>
 
-    <!-- SECTION 2: CONDITIONS (ETAPE 2) -->
-    <section id="conditions" class="page-section">
-        <div class="container">
-            <header>
-                <h1>Conditions d'utilisation</h1>
-                <p class="subtitle">KalMydas - Cadre Légal Edition 2026</p>
-            </header>
-
-            <div class="legal-box">
-                <div class="warning-box">
-                    <h3>Avertissement sur les Risques</h3>
-                    <p>Le trading sur marge comporte un niveau de risque élevé et peut ne pas convenir à tous les
-                        investisseurs. L'effet de levier peut agir aussi bien à votre avantage qu'à votre désavantagé.
-                        Avant de décider de trader, vous devez examiner attentivement vos objectifs d'investissement,
-                        votre niveau d'expérience et votre appétit pour le risque.</p>
-                    <p class="highlight" style="text-align: center; display: block; margin-top: 15px;">La performance
-                        passée
-                        n'est pas indicative des résultats futurs.</p>
-                </div>
-
-                <h2>1. Acceptation des Conditions</h2>
-                <p>En accédant aux outils, algorithmes, indicateurs ou services de <span
-                        class="highlight">KalMydas</span>,
-                    vous acceptez d'être lié par les présentes conditions d'utilisation. Si vous n'acceptez pas ces
-                    conditions, vous ne devez pas utiliser nos services.</p>
-
-                <h2>2. Nature du Service</h2>
-                <p>KalMydas fournit des outils d'aide à la décision, des indicateurs techniques et des algorithmes de
-                    trading automatisés (Expert Advisors). Nous ne sommes pas des conseillers financiers, des courtiers
-                    ou
-                    des gestionnaires de fonds.</p>
-                <ul>
-                    <li>Tous les signaux, alertes et analyses générés sont à titre informatif et technologique.</li>
-                    <li>L'utilisateur conserve l'entière responsabilité de la supervision et de l'usage de l'algorithme,
-                        y
-                        compris lorsque l'hébergement technique est délégué aux serveurs KalMydas.</li>
-                    <li>Les interventions de maintenance technique (mises à jour logicielles, surveillance serveur)
-                        assurées
-                        par KalMydas ne constituent en aucun cas une gestion de portefeuille personnalisée.</li>
-                </ul>
-
-                <h2>3. Propriété Intellectuelle</h2>
-                <p>L'ensemble du contenu, y compris mais sans s'y limiter, les codes sources de tous les algorithmes,
-                    logos, designs et documentations, est la propriété exclusive de KalMydas.</p>
-                <p>Toute reproduction, décompilation ou distribution non autorisée est strictement interdite et fera
-                    l'objet de poursuites judiciaires.</p>
-
-                <h2>4. Limitation de Responsabilité</h2>
-                <p>KalMydas ne pourra en aucun cas être tenu responsable des pertes financières, qu'elles soient
-                    directes
-                    ou indirectes, résultant de l'utilisation, d'un dysfonctionnement, d'un bug informatique ou d'une
-                    erreur de code de nos algorithmes.</p>
-                <p>Le marché du trading est sujet à des conditions imprévisibles (slippage, coupures de flux, événements
-                    macroéconomiques) que la technologie ne peut totalement anticiper.</p>
-
-                <h2>5. Confidentialité</h2>
-                <p>Les paramètres des algorithmes et les stratégies partagées dans les manuels de référence sont
-                    confidentiels. L'utilisateur s'engage à ne pas divulguer ces informations à des tiers.</p>
-            </div>
-
-            <div class="btn-container">
-                <button class="btn" onclick="approveLegal()">J'ai pris connaissance & J'accepte</button>
-            </div>
-            <footer>
-                © 2026 KalMydas • ALGORITHMIC FREEDOM • GREEN GROWTH • Tous droits réservés.
-            </footer>
+        <div class="section-title">Cadre Juridique & Licence</div>
+        <div class="cards-grid">
+            <a href="04_CONDITIONS_KalMydas HORIZON.html" class="card">
+                <h3>Conditions d'Usage</h3>
+            </a>
+            <a href="05_LICENCE_KalMydas HORIZON.html" class="card">
+                <h3>Accord de Licence</h3>
+            </a>
         </div>
-    </section>
 
-    <!-- SECTION 3: PORTAIL CENTRAL (HUB) -->
-    <section id="portal" class="page-section">
-        <div class="container">
-            <header>
-                <h1>Espace Documentation</h1>
-                <p class="subtitle">KalMydas HORIZON • ALGORITHMIC FREEDOM • GREEN GROWTH</p>
-            </header>
-
-            <div class="cards-grid">
-                <div class="card" onclick="showSection('fiche-produit')">
-                    <h3>Fiche Produit</h3>
-                    <p>Découvrez l'essence et les points forts de HORIZON.</p>
-                </div>
-                <div class="card" onclick="showSection('manuel-strategique')">
-                    <h3>Manuel Stratégique</h3>
-                    <p>La logique mathématique et les filtres de tendance.</p>
-                </div>
-                <div class="card" onclick="showSection('fiche-technique')">
-                    <h3>Fiche Technique</h3>
-                    <p>Configuration MT4, installation et paramètres clés.</p>
-                </div>
-            </div>
-
-            <div
-                style="margin:40px 0 20px; text-align:left; border-bottom:1px solid var(--glass-border); padding-bottom:15px; opacity:0.8;">
-                <span class="subtitle" style="letter-spacing:2px;">Cadre Juridique & Licence</span>
-            </div>
-            <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                <div class="card" onclick="showSection('licence')" style="padding: 20px;">
-                    <h3 style="font-size: 1.1rem;">Accord de Licence</h3>
-                </div>
-                <div class="card" onclick="showSection('conditions')" style="padding: 20px;">
-                    <h3 style="font-size: 1.1rem;">Conditions d'usage</h3>
-                </div>
-            </div>
-
-            <div
-                style="margin:60px 0 30px; text-align:left; border-bottom:1px solid var(--glass-border); padding-bottom:15px; opacity:0.8;">
-                <span class="subtitle" style="letter-spacing:2px;">Rapports de Performance (Annexe)</span>
-            </div>
-            <div class="cards-grid">
-                <a href="06_BACKTEST_GLOBAL_KalMydas_HORIZON.html" class="card">
-                    <h3>Global Historique</h3>
-                </a>
-                <a href="07_BACKTEST_FORWARD_KalMydas_HORIZON.html" class="card">
-                    <h3>Forward Test</h3>
-                </a>
-                <a href="08_BACKTEST_CRISE2020_KalMydas_HORIZON.html" class="card">
-                    <h3>Crise Covid 2020</h3>
-                </a>
-                <a href="09_BACKTEST_CRISE2008_KalMydas_HORIZON.html" class="card">
-                    <h3>Crise 2008</h3>
-                </a>
-            </div>
-
-            <div class="support-wrapper" id="support">
-                <h2>Assistance & Communauté</h2>
-                <div class="social-grid">
-                    <a href="https://t.me/kal_mydas" target="_blank" class="social-link">Direct Support : @kal_mydas</a>
-                    <a href="https://t.me/kalmydas" target="_blank" class="social-link">Canal Officiel : @kalmydas</a>
-                </div>
-            </div>
-
-            <footer>
-                © 2026 KalMydas • ALGORITHMIC FREEDOM • GREEN GROWTH • Tous droits réservés.
-            </footer>
+        <div class="section-title">Preuves de Performance (Backtests)</div>
+        <div class="cards-grid">
+            <a href="06_BACKTEST_GLOBAL_KalMydas HORIZON.html" class="card"><h3>BACKTEST GLOBAL</h3></a><a href="07_FORWARD_TEST_KalMydas HORIZON.html" class="card"><h3>FORWARD TEST</h3></a><a href="08_TEST_CRISE_COVID_KalMydas HORIZON.html" class="card"><h3>TEST CRISE COVID</h3></a><a href="09_TEST_CRISE_SUBPRIMES_KalMydas HORIZON.html" class="card"><h3>TEST CRISE SUBPRIMES</h3></a>
         </div>
-    </section>
 
-    <!-- SECTION 4: FICHE PRODUIT -->
-    <section id="fiche-produit" class="page-section">
-        <div class="container">
-            <div class="tabs-nav">
-                <button class="tab-btn" onclick="showSection('portal')">Menu Principal</button>
-                <button class="tab-btn active">Fiche Produit</button>
-                <button class="tab-btn" onclick="showSection('manuel-strategique')">Stratégie</button>
-                <button class="tab-btn" onclick="showSection('fiche-technique')">Technique</button>
-            </div>
-
-            <header>
-                <h1>KalMydas HORIZON</h1>
-                <p class="subtitle">Algorithme de Suivi de Tendance Majeure</p>
-            </header>
-
-            <div class="legal-box" style="max-height: none;">
-                <h2>Présentation</h2>
-                <p><strong>KalMydas HORIZON</strong> incarne la réponse de KalMydas à la volatilité directionnelle des
-                    marchés. Conçu pour accompagner exclusivement la tendance de fond (EMA 200), cet algorithme sécurise
-                    chaque entrée par une validation de momentum (RSI).</p>
-                <p>Il cible patiemment les accélérations du prix pour synchroniser ses positions avec les mouvements
-                    puissants des acteurs de référence.</p>
-
-                <h2>Points Forts</h2>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <h3>Sécurité Maximale</h3>
-                        <p>Filtre EMA 200 intégré : Autorise exclusivement les achats en tendance haussière (Mode Long
-                            Only
-                            sur Or/Indices).</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Profits Dynamiques</h3>
-                        <p>Sorties intelligentes par ATR Trailing Stop. Optimise les gains tant que la volatilité reste
-                            favorable.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Momentum</h3>
-                        <p>Entrées validées par RSI (>55) pour capturer l'impulsion dès sa naissance.</p>
-                    </div>
-                    <div class="feature-item">
-                        <h3>Précision</h3>
-                        <p>Gestion du risque fixe par trade (0.5%) et limitation de l'exposition globale (Max 3 Trades).
-                        </p>
-                    </div>
-                </div>
-
-                <div class="accent-box">
-                    <p>La performance passée informe sur le potentiel. Le trading sur marge implique un risque de perte
-                        en
-                        capital.</p>
-                </div>
-            </div>
-            <footer>
-                © 2026 KalMydas • ALGORITHMIC FREEDOM • GREEN GROWTH • Tous droits réservés.
-            </footer>
+        <div class="support-wrapper">
+            <a href="https://t.me/kal_mydas" target="_blank" class="social-link">Support : @kal_mydas</a>
+            <a href="https://t.me/kalmydas" target="_blank" class="social-link">Canal : @kalmydas</a>
         </div>
-    </section>
 
-    <!-- SECTION 5: MANUEL STRATEGIQUE -->
-    <!-- SECTION 5: MANUEL STRATEGIQUE -->
-    <section id="manuel-strategique" class="page-section">
-        <div class="container">
-            <div class="tabs-nav">
-                <button class="tab-btn" onclick="showSection('portal')">Menu Principal</button>
-                <button class="tab-btn" onclick="showSection('fiche-produit')">Fiche Produit</button>
-                <button class="tab-btn active">Manuel Stratégique</button>
-                <button class="tab-btn" onclick="showSection('fiche-technique')">Technique</button>
-            </div>
-
-            <header>
-                <h1>Manuel Stratégique</h1>
-                <p class="subtitle">Logique & Mécanismes de Trading</p>
-            </header>
-
-            <div class="legal-box" style="max-height: none;">
-                <h2>1. Philosophie de l'Algorithme</h2>
-                <p><strong>KalMydas HORIZON</strong> opère comme un système <strong>Trend-Following Pyramidal</strong>
-                    (Suivi de tendance avec renforcement). Il construit une position forte (Pyramide) lorsque la
-                    tendance
-                    est établie et puissante.</p>
-                <p>Il fonctionne en mode <strong>Long Only</strong> (Achat Uniquement) pour exploiter le biais haussier
-                    long
-                    terme des actifs majeurs (Or, Indices, Crypto).</p>
-
-                <h2>2. Indicateurs & Logique d'Entrée</h2>
-                <p>La prise de position exige la convergence de l'élan (Momentum) et de la tendance de fond :</p>
-
-                <div class="step">
-                    <div class="step-num">A</div>
-                    <div>
-                        <p class="highlight">Le Filtre de Tendance (EMA 200)</p>
-                        <p>La Moyenne Mobile Exponentielle 200 assure la sécurité principale. Chaque position s'ouvre
-                            exclusivement lorsque le cours évolue <strong>au-dessus</strong> de cette moyenne.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-num">B</div>
-                    <div>
-                        <p class="highlight">Le Signal Momentum (RSI > 55)</p>
-                        <p>L'algorithme détecte une poussée de force. Le RSI (14 périodes) franchit le niveau 55,
-                            confirmant
-                            que les acheteurs prennent le contrôle.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-num">C</div>
-                    <div>
-                        <p class="highlight">Le Pyramidage (Renforcement)</p>
-                        <p>Lorsque le trade évolue favorablement, Horizon ajoute des positions gagnantes pour maximiser
-                            le
-                            profit. Une nouvelle position s'ouvre dès que le prix progresse d'au moins <strong>0.5 x
-                                ATR</strong> depuis le dernier point haut.</p>
-                    </div>
-                </div>
-
-                <h2>3. Gestion du Risque & Sortie</h2>
-                <p>La sortie se gère dynamiquement pour maximiser les gains tout en sécurisant le capital rapidement en
-                    cas
-                    de retournement.</p>
-
-                <div class="accent-box">
-                    <p class="highlight">Stop Loss Initial</p>
-                    <p>Calculé dynamiquement à <strong>2.0 x ATR</strong> sous le prix d'entrée. Cela offre l'amplitude
-                        nécessaire au trade tout en protégeant le capital contre un mouvement adverse soudain.</p>
-                </div>
-
-                <div class="accent-box">
-                    <p class="highlight">Sortie Technique (Donchian Exit)</p>
-                    <p>La clôture des positions s'exécute sur signal technique : lorsque le prix touche le <strong>plus
-                            bas
-                            des 20 dernières bougies</strong> (Canal de Donchian Low). Cela confirme techniquement la
-                        fin
-                        de la tendance haussière.</p>
-                </div>
-            </div>
-            <footer>
-                © 2026 KalMydas • ALGORITHMIC FREEDOM • GREEN GROWTH • Tous droits réservés.
-            </footer>
-        </div>
-    </section>
-
-    <!-- SECTION 6: FICHE TECHNIQUE -->
-    <section id="fiche-technique" class="page-section">
-        <div class="container">
-            <div class="tabs-nav">
-                <button class="tab-btn" onclick="showSection('portal')">Menu Principal</button>
-                <button class="tab-btn" onclick="showSection('fiche-produit')">Fiche Produit</button>
-                <button class="tab-btn" onclick="showSection('manuel-strategique')">Stratégie</button>
-                <button class="tab-btn active">Fiche Technique</button>
-            </div>
-
-            <header>
-                <h1>Fiche Technique</h1>
-                <p class="subtitle">KalMydas HORIZON</p>
-            </header>
-
-            <div class="legal-box" style="max-height: none;">
-                <h2>1. Spécifications Système</h2>
-                <table>
-                    <tr>
-                        <th>Version du Noyau</th>
-                        <td>1.0 (Architecture MQL4)</td>
-                    </tr>
-                    <tr>
-                        <th>Paramètre</th>
-                        <th>Valeur / Recommandation</th>
-                    </tr>
-                    <tr>
-                        <td>Plateforme</td>
-                        <td><span class="badge">MetaTrader 4 (MT4)</span></td>
-                    </tr>
-                    <tr>
-                        <td>Actif Éligible</td>
-                        <td>XAUUSD (GOLD / Or Spot)</td>
-                    </tr>
-                    <tr>
-                        <td>Unité de Temps (TF)</td>
-                        <td>H4 (Horizon Long Terme)</td>
-                    </tr>
-                    <tr>
-                        <td>Risque par Trade</td>
-                        <td><span class="badge">0.5% à 2.0%</span> (Conseillé)</td>
-                    </tr>
-                    <tr>
-                        <td>Type de Stratégie</td>
-                        <td>Suivi de Tendance de Marché</td>
-                    </tr>
-                </table>
-
-                <h2>2. Paramètres de Gestion (Inputs)</h2>
-                <p>Liste exhaustive des variables d'entrée configurables dans le terminal MT4 :</p>
-
-                <h3 style="color: var(--primary); margin: 25px 0 15px;">Gestion du Capital</h3>
-                <table>
-                    <tr>
-                        <th>Paramètre</th>
-                        <th>Valeur par Défaut</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>RiskPercent</td>
-                        <td>0.5%</td>
-                        <td>Risque par position en pourcentage de la balance.</td>
-                    </tr>
-                    <tr>
-                        <td>MaxOpenTrades</td>
-                        <td>3</td>
-                        <td>Nombre maximum de positions simultanées (Pyramide).</td>
-                    </tr>
-                    <tr>
-                        <td>MinDistATR</td>
-                        <td>0.5</td>
-                        <td>Distance minimale (en ATR) pour ouvrir un nouveau trade.</td>
-                    </tr>
-                </table>
-
-                <h3 style="color: var(--primary); margin: 25px 0 15px;">Algorithme & Indicateurs</h3>
-                <table>
-                    <tr>
-                        <th>Paramètre</th>
-                        <th>Valeur par Défaut</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>EMA_Trend</td>
-                        <td>200</td>
-                        <td>Moyenne Mobile Exponentielle pour la tendance de fond.</td>
-                    </tr>
-                    <tr>
-                        <td>RSI_Period</td>
-                        <td>14</td>
-                        <td>Période du Relative Strength Index.</td>
-                    </tr>
-                    <tr>
-                        <td>RSI_Trigger</td>
-                        <td>55</td>
-                        <td>Seuil d'activation du signal d'achat (Bullish Momentum).</td>
-                    </tr>
-                </table>
-
-                <h3 style="color: var(--primary); margin: 25px 0 15px;">Sécurité</h3>
-                <table>
-                    <tr>
-                        <th>Paramètre</th>
-                        <th>Valeur par Défaut</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td>MaxSpread</td>
-                        <td>50 (Points)</td>
-                        <td>Spread maximum autorisé pour l'ouverture d'une position.</td>
-                    </tr>
-                </table>
-
-                <h2>3. Fichiers & Installation</h2>
-                <p>Le package KalMydas HORIZON se compose des éléments suivants :</p>
-                <ul>
-                    <li><strong>Executable :</strong> <code>KalMydas HORIZON_[LICENCE].ex4</code></li>
-                    <li><strong>Bibliothèques :</strong> Aucune DLL externe requise.</li>
-                    <li><strong>Presets :</strong> Fichiers <code>.set</code> fournis dans le dossier
-                        <code>/PRESETS</code>.
-                    </li>
-                    <li><strong>Licence :</strong> Clé d'activation à renseigner dans les paramètres (Input :
-                        <code>LicenseKey</code>). À demander auprès de KalMydas.
-                    </li>
-                </ul>
-            </div>
-            <footer>
-                © 2026 KalMydas • ALGORITHMIC FREEDOM • GREEN GROWTH • Tous droits réservés.
-            </footer>
-        </div>
-    </section>
-
-    <!-- JS ENGINE -->
-    <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.page-section');
-            const target = document.getElementById(sectionId);
-            const isApproved = sessionStorage.getItem('kalmydas_approved');
-
-            if (!target) return;
-
-            // SECURITE FLUX SEQUENTIEL
-            if (!isApproved) {
-                // Si non approuvé, seules Licence et Conditions sont permises
-                if (sectionId !== 'licence' && sectionId !== 'conditions') {
-                    sectionId = 'licence';
-                }
-            }
-
-            // Mise à jour visuelle des sections
-            sections.forEach(s => {
-                s.classList.remove('active');
-            });
-
-            setTimeout(() => {
-                sections.forEach(s => s.style.display = 'none');
-                const finalTarget = document.getElementById(sectionId);
-                if (finalTarget) {
-                    finalTarget.style.display = 'block';
-                    setTimeout(() => {
-                        finalTarget.classList.add('active');
-                    }, 50);
-                }
-            }, 300);
-
-            // Persistance de l'ancre et scroll
-            window.location.hash = sectionId;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function approveLegal() {
-            sessionStorage.setItem('kalmydas_approved', 'true');
-            showSection('portal');
-        }
-
-        // Gestion de l'historique et du chargement initial
-        window.addEventListener('hashchange', () => {
-            const hash = window.location.hash.slice(1) || 'licence';
-            showSection(hash);
-        });
-
-        window.addEventListener('load', () => {
-            const isApproved = sessionStorage.getItem('kalmydas_approved');
-            const hash = window.location.hash.slice(1);
-
-            if (!isApproved) {
-                if (hash === 'conditions') {
-                    showSection('conditions');
-                } else {
-                    showSection('licence');
-                }
-            } else {
-                showSection(hash || 'portal');
-            }
-        });
-    </script>
+        <footer>© 2026 KalMydas • ALGORITHMIC FREEDOM • GREEN GROWTH</footer>
+    </div>
 </body>
 
 </html>
